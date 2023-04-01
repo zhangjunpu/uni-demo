@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style lang="less">
+      .list {
+        position: relative;
+      }
+
+      .item {
+        position: absolute;
+        width: 670px;
+        height: 400px;
+        margin: 40px;
+        border-radius: 20px;
+      }
+      .item1 {
+        background-color: #f00;
+        transform: perspective(500px) translate3d(0, -20px, -20px);
+        animation: anim3 1s linear 0s infinite;
+        z-index: 1;
+      }
+      .item2 {
+        background-color: #0f0;
+        transform: perspective(500px) translate3d(0, -10px, -10px);
+        animation: anim2 1s linear 0s infinite;
+        z-index: 2;
+      }
+      .item3 {
+        background-color: #00f;
+        transform: perspective(500px) translate3d(0, 0, 0);
+        animation: anim1 1s linear 0s infinite;
+        z-index: 3;
+      }
+
+      @keyframes anim3 {
+        from {
+          transform: perspective(500px) translate3d(0, -20px, -20px);
+          z-index: 1;
+        }
+
+        to {
+          transform: perspective(500px) translate3d(0, -10px, -10px);
+          z-index: 2;
+        }
+      }
+      @keyframes anim2 {
+        from {
+          transform: perspective(500px) translate3d(0, -10px, -10px);
+          z-index: 2;
+        }
+
+        to {
+          transform: perspective(500px) translate3d(0, 0, 0);
+          z-index: 3;
+        }
+      }
+      @keyframes anim1 {
+        from {
+          transform: perspective(500px) translate3d(0, 0, 0);
+          z-index: 3;
+          opacity: 1;
+        }
+
+        /* 80% {
+          transform: perspective(500px) translate3d(0, 400px, 0);
+          opacity: .8;
+        } */
+
+        to {
+          transform: perspective(500px) translate3d(0, 400px, 0);
+          z-index: 1;
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="list">
+      <div class="item item1"></div>
+      <div class="item item2"></div>
+      <div class="item item3"></div>
+    </div>
+
+    <script></script>
+  </body>
+</html>
