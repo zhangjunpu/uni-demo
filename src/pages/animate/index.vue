@@ -19,8 +19,8 @@ export default {
     return {};
   },
   onLoad(options) {
-    console.log("init onLoad", options)
-    console.log(this)
+    console.log("init onLoad", options);
+    console.log(this);
   },
   methods: {
     handlePrev() {
@@ -30,8 +30,8 @@ export default {
       console.log("next");
     },
     handleItem(index) {
-      console.log("click", index)
-    }
+      console.log("click", index);
+    },
   },
 };
 </script>
@@ -47,31 +47,33 @@ page {
     position: relative;
     .item {
       position: absolute;
-      width: 670rpx;
-      height: 400rpx;
-      margin: 40rpx;
-      border-radius: 20rpx;
+      width: 694rpx;
+      height: 288rpx;
+      border-radius: 30rpx;
+      margin: 40rpx 16rpx;
       animation-duration: 500ms;
       animation-timing-function: linear;
-      animation-iteration-count: 1;
+      animation-iteration-count: infinite;
       animation-fill-mode: forwards;
+      perspective: 500rpx;
+      /* transition: transform 1s linear; */
     }
 
     .item1 {
       background-color: #f00;
-      transform: perspective(500rpx) translate3d(40rpx, -40rpx, -40rpx);
+      transform: translate3d(20rpx, -20rpx, -20rpx);
       z-index: 1;
       /* animation-name: anim3; */
     }
     .item2 {
       background-color: #0f0;
-      transform: perspective(500rpx) translate3d(20rpx, -20rpx, -20rpx);
+      transform: translate3d(10rpx, -10rpx, -10rpx);
       z-index: 2;
       /* animation-name: anim2; */
     }
     .item3 {
       background-color: #00f;
-      transform: perspective(500rpx) translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
       z-index: 3;
       /* animation-name: anim1; */
     }
@@ -90,35 +92,35 @@ page {
 
   @keyframes anim3 {
     from {
-      transform: perspective(500rpx) translate3d(40rpx, -40rpx, -40rpx);
+      transform: translate3d(20rpx, -20rpx, -20rpx);
       z-index: 1;
     }
 
     to {
-      transform: perspective(500rpx) translate3d(20rpx, -20rpx, -20rpx);
+      transform: translate3d(10rpx, -10rpx, -10rpx);
       z-index: 2;
     }
   }
   @keyframes anim2 {
     from {
-      transform: perspective(500rpx) translate3d(20rpx, -20rpx, -20rpx);
+      transform: translate3d(10rpx, -10rpx, -10rpx);
       z-index: 2;
     }
 
     to {
-      transform: perspective(500rpx) translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
       z-index: 3;
     }
   }
   @keyframes anim1 {
     from {
-      transform: perspective(500rpx) translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
       z-index: 3;
       opacity: 1;
     }
 
     to {
-      transform: perspective(500rpx) translate3d(0, 400rpx, 0) rotate(-10deg);
+      transform: translate3d(0, 288rpx, 0) rotate(-10deg);
       z-index: 1;
       opacity: 0;
     }
