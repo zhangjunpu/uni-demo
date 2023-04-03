@@ -4,6 +4,7 @@
 			<view class="statusBar"></view><!-- 状态栏占位 -->
 			<view class="title-bar">
 				<text class="info">标题栏</text>
+				<input class="uni-input" placeholder="输入框" />
 			</view>
 		</view>
 		<view class="content">
