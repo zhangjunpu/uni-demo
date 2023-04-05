@@ -4,12 +4,11 @@
       <view
         v-for="(item, index) in list"
         :key="item.name"
-        :class="['item', targetItemCls(index), targetAnimCls(index)]"
+        :class="['item', animCls[Math.min(targetIndex(index), 3)]]"
         :style="'background:' + item.bg"
         @click="handleItem(index)"
+        >{{ item.name }}</view
       >
-        {{ item.name }}
-      </view>
     </view>
 
     <view class="ctrl">
@@ -35,27 +34,12 @@ export default {
       ],
       animCls: ["item0", "item1", "item2", "item3"],
       curIndex: 0,
-      direction: 0, // 0 none，1 正向，2 反向
     };
   },
   onLoad(options) {
     console.log(this);
   },
   methods: {
-    targetItemCls(index) {
-      const i = Math.min(this.targetIndex(index), 3);
-      return this.animCls[i];
-    },
-    targetAnimCls(index) {
-      const size = this.list.length;
-      const i = this.targetIndex(index);
-      if (this.direction === 1 && i === size - 1) {
-        return "anim-forward";
-      } else if (this.direction === 2 && i === 0) {
-        return "anim-backward";
-      }
-      return "";
-    },
     targetIndex(index) {
       const size = this.list.length;
       return (index - this.curIndex + size) % size;
@@ -64,13 +48,11 @@ export default {
       console.log("click", index);
     },
     handlePrev() {
-      this.direction = 2;
       let index = this.curIndex - 1;
       if (index < 0) index = this.list.length - 1;
       this.curIndex = index;
     },
     handleNext() {
-      this.direction = 1;
       let index = this.curIndex + 1;
       if (index >= this.list.length) index = 0;
       this.curIndex = index;
@@ -100,7 +82,6 @@ page {
 
   .list {
     position: relative;
-
     .item {
       position: absolute;
       width: 694rpx;
@@ -109,7 +90,7 @@ page {
       border-radius: 30rpx;
       margin: 40rpx 16rpx;
       text-align: center;
-      box-shadow: 0 0 8rpx #bbb;
+      box-shadow: 0 0 8rpx #aaa;
       perspective: 500rpx;
       transition: all 300ms ease;
     }
@@ -138,61 +119,5 @@ page {
   transform: translate3d(20rpx, -20rpx, -20rpx);
   z-index: 0;
   opacity: 0;
-}
-
-.anim-forward {
-  transition: none;
-  animation: anim-forward 300ms linear 1 forwards;
-}
-
-.anim-backward {
-  transition: none;
-  animation: anim-backward 300ms linear 1 forwards;
-}
-
-@keyframes anim-forward {
-  from {
-    transform: translate3d(0, 0, 0);
-    z-index: 4;
-    opacity: 1;
-  }
-
-  70% {
-    transform: translate3d(0, 200rpx, 0) rotate(-10deg);
-    z-index: 4;
-    opacity: 1;
-  }
-
-  to {
-    transform: translate3d(20rpx, -20rpx, -20rpx);
-    z-index: 0;
-    opacity: 0;
-  }
-}
-
-@keyframes anim-backward {
-  from {
-    transform: translate3d(20rpx, -20rpx, -20rpx);
-    z-index: 0;
-    opacity: 0;
-  }
-
-  50% {
-    transform: translate3d(0, 200rpx, 0);
-    z-index: 0;
-    opacity: 1;
-  }
-
-  51% {
-    transform: translate3d(0, 200rpx, 0);
-    z-index: 3;
-    opacity: 1;
-  }
-
-  to {
-    transform: translate3d(0, 0, 0);
-    z-index: 3;
-    opacity: 1;
-  }
 }
 </style>

@@ -1,9 +1,10 @@
 <template>
   <view class="content">
     <image class="logo" src="/static/logo.png"></image>
-    <view class="text-area">
+    <view class="list">
       <button @click="handleClick">沉浸式</button>
       <button @click="handleAnim">动画</button>
+      <button @click="handleTransition">形变</button>
     </view>
   </view>
 </template>
@@ -21,34 +22,42 @@ export default {
     handleAnim() {
       uni.navigateTo({ url: "/pages/animate/index" });
     },
+    handleTransition() {
+      uni.navigateTo({ url: "/pages/transition/index" });
+    },
   },
 };
 </script>
 
-<style>
+<style lang="scss">
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
 
-.logo {
-  height: 200rpx;
-  width: 200rpx;
-  margin-top: 200rpx;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50rpx;
-}
+  .logo {
+    height: 200rpx;
+    width: 200rpx;
+    margin-top: 200rpx;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50rpx;
+  }
 
-.text-area {
-  display: flex;
-  justify-content: center;
-}
+  .list {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin: 40rpx;
+    padding: 20rpx 0;
 
-.title {
-  font-size: 36rpx;
-  color: #8f8f94;
+    button {
+      width: 80%;
+      margin: 10rpx auto;
+    }
+  }
 }
 </style>
