@@ -7,11 +7,10 @@
       }
     },
     {
-      "path": "pages/chenjinshi/chenjinshi",
+      "path": "pages/custom-navbar/index",
       "style": {
-				"navigationBarTextStyle": "#fff",
-        "navigationBarTitleText": "CJS",
-        "enablePullDownRefresh": true
+        "navigationStyle": "custom",
+        "navigationBarTextStyle": "#fff"
       }
     },
     {

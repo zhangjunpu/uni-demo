@@ -17,7 +17,7 @@ export default {
   onLoad() {},
   methods: {
     handleClick() {
-      uni.navigateTo({ url: "/pages/chenjinshi/chenjinshi" });
+      uni.navigateTo({ url: "/pages/custom-navbar/index" });
     },
     handleAnim() {
       uni.navigateTo({ url: "/pages/animate/index" });
