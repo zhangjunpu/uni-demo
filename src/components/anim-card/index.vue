@@ -32,10 +32,8 @@ export default {
         ];
       },
     },
-    touchSlop: {
-      type: Number,
-      default: 20,
-    },
+    touchSlop: 20,
+    prevDisable: false,
   },
   data() {
     return {
@@ -67,10 +65,14 @@ export default {
       console.log('click', index);
     },
     handlePrev() {
-      this.direction = 2;
-      let index = this.curIndex - 1;
-      if (index < 0) index = this.list.length - 1;
-      this.curIndex = index;
+      if (this.prevDisable) {
+        this.handleNext();
+      } else {
+        this.direction = 2;
+        let index = this.curIndex - 1;
+        if (index < 0) index = this.list.length - 1;
+        this.curIndex = index;
+      }
     },
     handleNext() {
       this.direction = 1;
@@ -110,7 +112,7 @@ export default {
     height: 288rpx;
     line-height: 288rpx;
     border-radius: 30rpx;
-    margin: 40rpx 0 20rpx 16rpx;
+    margin: 40rpx 0 20rpx;
     text-align: center;
     box-shadow: 0 0 8rpx #bbb;
     perspective: 500rpx;
@@ -144,12 +146,12 @@ export default {
 
 .anim-forward {
   transition: none;
-  animation: anim-forward 300ms linear 1 forwards;
+  animation: anim-forward 300ms linear 1 none;
 }
 
 .anim-backward {
-  transition: none;
-  animation: anim-backward 300ms linear 1 forwards;
+  transition: none 300ms ease 300ms;
+  animation: anim-backward 300ms linear 1 none;
 }
 
 @keyframes anim-forward {
@@ -180,13 +182,13 @@ export default {
   }
 
   50% {
-    transform: translate3d(0, 200rpx, 0);
+    transform: translate3d(0, 100rpx, 0);
     z-index: 0;
     opacity: 1;
   }
 
   51% {
-    transform: translate3d(0, 200rpx, 0);
+    transform: translate3d(0, 100rpx, 0);
     z-index: 3;
     opacity: 1;
   }
