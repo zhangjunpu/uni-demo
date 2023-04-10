@@ -2,9 +2,10 @@
   <view class="content">
     <image class="logo" src="/static/logo.png"></image>
     <view class="list">
-      <button @click="handleClick">沉浸式</button>
-      <button @click="handleAnim">动画</button>
-      <button @click="handleTransition">形变</button>
+      <button @click="handleItem(0)">沉浸式</button>
+      <button @click="handleItem(1)">动画</button>
+      <button @click="handleItem(2)">形变</button>
+      <button @click="handleItem(3)">评分</button>
     </view>
   </view>
 </template>
@@ -16,14 +17,18 @@ export default {
   },
   onLoad() {},
   methods: {
-    handleClick() {
-      uni.navigateTo({ url: "/pages/custom-navbar/index" });
-    },
-    handleAnim() {
-      uni.navigateTo({ url: "/pages/animate/index" });
-    },
-    handleTransition() {
-      uni.navigateTo({ url: "/pages/transition/index" });
+    handleItem(index) {
+      let url;
+      if (index === 0) {
+        url = '/pages/custom-navbar/index';
+      } else if (index === 1) {
+        url = '/pages/animate/index';
+      } else if (index === 2) {
+        url = '/pages/transition/index';
+      } else if (index === 3) {
+        url = '/pages/rating/index';
+      }
+      uni.navigateTo({ url });
     },
   },
 };

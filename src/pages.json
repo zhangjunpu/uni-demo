@@ -1,35 +1,41 @@
 {
-  "pages": [
-    {
-      "path": "pages/index/index",
-      "style": {
-        "navigationBarTitleText": "uni-app"
-      }
-    },
-    {
-      "path": "pages/custom-navbar/index",
-      "style": {
-        "navigationStyle": "custom",
-        "navigationBarTextStyle": "#fff"
-      }
-    },
-    {
-      "path": "pages/animate/index",
-      "style": {
-        "navigationBarTitleText": "animate"
-      }
-    },
-    {
-      "path": "pages/transition/index",
-      "style": {
-        "navigationBarTitleText": "transition"
-      }
-    }
-  ],
-  "globalStyle": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
-  }
+	"pages": [
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		},
+		{
+			"path": "pages/custom-navbar/index",
+			"style": {
+				"navigationStyle": "custom",
+				"navigationBarTextStyle": "#fff"
+			}
+		},
+		{
+			"path": "pages/animate/index",
+			"style": {
+				"navigationBarTitleText": "animate"
+			}
+		},
+		{
+			"path": "pages/transition/index",
+			"style": {
+				"navigationBarTitleText": "transition"
+			}
+		},
+		{
+			"path": "pages/rating/index",
+			"style": {
+				"navigationBarTitleText": "rating"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
 }
