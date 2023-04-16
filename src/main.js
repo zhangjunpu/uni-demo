@@ -1,16 +1,12 @@
-import Vue from 'vue'
-import App from './App'
+import Vue from 'vue';
+import App from './App';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-App.mpType = 'app'
+App.mpType = 'app';
 
 function isPromise(obj) {
-  return (
-    !!obj &&
-    (typeof obj === "object" || typeof obj === "function") &&
-    typeof obj.then === "function"
-  );
+  return !!obj && (typeof obj === 'object' || typeof obj === 'function') && typeof obj.then === 'function';
 }
 
 uni.addInterceptor({
@@ -19,7 +15,7 @@ uni.addInterceptor({
       return res;
     }
     return new Promise((resolve, reject) => {
-      res.then((res) => {
+      res.then(res => {
         if (res[0]) {
           reject(res[0]);
         } else {
@@ -31,6 +27,10 @@ uni.addInterceptor({
 });
 
 const app = new Vue({
-  ...App
-})
-app.$mount()
+  ...App,
+});
+app.$mount();
+
+if (process.env.NODE_ENV !== 'production' || process.env.VUE_APP_ENV === 'test') {
+  require('eruda').init();
+}

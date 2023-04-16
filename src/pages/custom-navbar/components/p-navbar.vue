@@ -1,6 +1,6 @@
 <template>
   <view>
-    <view class="t-nav" :style="{ height: `${navHeight}rpx` }">
+    <view class="p-nav" :style="{ height: `${navHeight}rpx` }">
       <view
         class="nav-search"
         :style="{
@@ -8,9 +8,9 @@
           top: `${statusBarHeight}rpx`,
           right: `${windowWidth - menubarLeft}rpx`,
         }">
-        <image class="logo" src="@/static/home/ic_logo.svg" mode="aspectFit" />
+        <image class="logo" src="../../../static/logo.png" mode="aspectFit" />
         <view class="search" @click="clickSearch">
-          <image class="search-logo" src="@/static/home/ic_home_search.png" mode="scaleToFill" />
+          <image class="search-logo" src="../../../static/home/ic_home_search.png" mode="scaleToFill" />
           <text class="search-placeholder">搜索功能、内容</text>
         </view>
       </view>
@@ -83,7 +83,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.t-nav {
+.p-nav {
   box-sizing: border-box;
   width: 100%;
   position: fixed;

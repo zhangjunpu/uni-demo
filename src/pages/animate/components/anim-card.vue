@@ -116,29 +116,32 @@ export default {
     text-align: center;
     box-shadow: 0 0 8rpx #bbb;
     perspective: 500rpx;
-    transition: all 300ms ease;
   }
 }
 
 .item0 {
+  transition: all 300ms ease; // 放在item里在ios中会产生问题
   transform: translate3d(0, 0, 0);
   z-index: 3;
   opacity: 1;
 }
 
 .item1 {
+  transition: all 300ms ease;
   transform: translate3d(10rpx, -10rpx, -10rpx);
   z-index: 2;
   opacity: 1;
 }
 
 .item2 {
+  transition: all 300ms ease;
   transform: translate3d(20rpx, -20rpx, -20rpx);
   z-index: 1;
   opacity: 1;
 }
 
 .item3 {
+  transition: all 300ms ease;
   transform: translate3d(20rpx, -20rpx, -20rpx);
   z-index: 0;
   opacity: 0;

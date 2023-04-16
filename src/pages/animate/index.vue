@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import AnimCard from '@/components/anim-card';
+import AnimCard from './components/anim-card';
 export default {
   components: {
     AnimCard,

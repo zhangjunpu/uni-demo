@@ -2,10 +2,7 @@
   <view class="content">
     <image class="logo" src="/static/logo.png"></image>
     <view class="list">
-      <button @click="handleItem(0)">沉浸式</button>
-      <button @click="handleItem(1)">动画</button>
-      <button @click="handleItem(2)">形变</button>
-      <button @click="handleItem(3)">评分</button>
+      <button v-for="item in list" :key="item.name" @click="handleItem(item.url)">{{ item.name }}</button>
     </view>
   </view>
 </template>
@@ -13,21 +10,33 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      list: [
+        {
+          name: '沉浸式',
+          url: '/pages/custom-navbar/index',
+        },
+        {
+          name: '动画',
+          url: '/pages/animate/index',
+        },
+        {
+          name: '评分',
+          url: '/pages/rating/index',
+        },
+        {
+          name: '左拉',
+          url: '/pages/left-load/index',
+        },
+        {
+          name: 'scroll',
+          url: '/pages/scroll/index',
+        },
+      ],
+    };
   },
-  onLoad() {},
   methods: {
-    handleItem(index) {
-      let url;
-      if (index === 0) {
-        url = '/pages/custom-navbar/index';
-      } else if (index === 1) {
-        url = '/pages/animate/index';
-      } else if (index === 2) {
-        url = '/pages/transition/index';
-      } else if (index === 3) {
-        url = '/pages/rating/index';
-      }
+    handleItem(url) {
       uni.navigateTo({ url });
     },
   },

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import tNavbar from '@/components/t-navbar/index';
+import tNavbar from './components/p-navbar';
 
 export default {
   components: {
