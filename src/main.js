@@ -31,6 +31,8 @@ const app = new Vue({
 });
 app.$mount();
 
+// #ifdef H5
 if (process.env.NODE_ENV !== 'production' || process.env.VUE_APP_ENV === 'test') {
   require('eruda').init();
 }
+// #endif

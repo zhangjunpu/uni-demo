@@ -23,11 +23,10 @@
 
 <script>
 import Vue from 'vue';
-import inobounce from 'inobounce';
+// import inobounce from '@/utils/inobounce.js'
 export default Vue.extend({
   data() {
     return {
-      lastOffsetX: 0,
       offsetX: 0,
       dx: 0,
       isLoading: false,
@@ -51,15 +50,15 @@ export default Vue.extend({
       console.log('scroll', e);
     },
     touchStart(e) {
-      const { clientX } = e.changedTouches && e.changedTouches[0];
-      this.dx = clientX;
-      this.lastOffsetX = this.offsetX;
+      const x = e.changedTouches[0].clientX;
+      this.dx = x;
     },
     touchMove(e) {
       const slop = -100;
-      const { clientX } = e.changedTouches && e.changedTouches[0];
-      const offsetX = clientX - this.dx;
-      this.offsetX = Math.max(Math.min(offsetX + this.lastOffsetX, 0), slop);
+      const x = e.changedTouches[0].clientX;
+      const offsetX = x - this.dx;
+      this.offsetX = Math.max(Math.min(this.offsetX + offsetX, 0), slop);
+      this.dx = x;
       if (this.offsetX === slop && !this.isLoading) {
         console.log('load more');
         this.isLoading = true;
